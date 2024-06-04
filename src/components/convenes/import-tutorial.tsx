@@ -96,6 +96,7 @@ export function ImportTutorial({ redirectToHistory }: Props) {
                   placeholder="Your installation directory"
                   required
                   onBlur={(e) => setGamePath(e.target.value)}
+                  defaultValue="C:\dev\games\Wuthering Waves\Wuthering Waves Game"
                 />
               </div>
             </li>

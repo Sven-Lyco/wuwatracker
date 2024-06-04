@@ -7,6 +7,7 @@ import { Sheet, SheetTrigger, SheetContent } from "./sheet";
 import { Menu } from "lucide-react";
 import Image from "next/image";
 import getFirstConveneBannerHref from "@/lib/getFirstConveneBannerHref";
+import { LanguageToggle } from "./language-toggle";
 
 export function Header() {
   return (
@@ -85,9 +86,14 @@ export function Header() {
           </nav>
         </SheetContent>
       </Sheet>
-      <span className="ms-auto">
-        <ModeToggle />
-      </span>
+      <div className="ms-auto">
+        <span className="p-1">
+          <LanguageToggle />
+        </span>
+        <span className="p-1">
+          <ModeToggle />
+        </span>
+      </div>
     </header>
   );
 }
