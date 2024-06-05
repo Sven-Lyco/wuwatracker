@@ -51,7 +51,7 @@ export function ImportTutorial({ redirectToHistory }: Props) {
   const isValidGamePath = gamePathRegex.test(gamePath);
   // matches valid Convene History API URLs
   const conveneHistoryUrlRegex =
-    /^https:\/\/aki-gm-resources-oversea\.aki-game\.net\/aki\/gacha\/index\.html\#\/record\?(?=.*\bplayer_id=\w+\b)(?=.*\blang=\w+\b)(?=.*\brecord_id=\w+\b)(?=.*\bsvr_id=\w+\b).*$/;
+    /^https:\/\/aki-gm-resources-oversea\.aki-game\.net\/aki\/gacha\/index\.html\#\/record\?(?=.*\bplayer_id=\w+\b)(?=.*\brecord_id=\w+\b)(?=.*\bsvr_id=\w+\b).*$/;
   const isValidConveneHistoryUrl =
     conveneHistoryUrl !== "" && conveneHistoryUrlRegex.test(conveneHistoryUrl);
 
@@ -99,6 +99,16 @@ export function ImportTutorial({ redirectToHistory }: Props) {
                   defaultValue="C:\dev\games\Wuthering Waves\Wuthering Waves Game"
                 />
               </div>
+              <ul className="flex flex-col gap-2 md:ps-8 md:list-disc mt-2 mb-4">
+                <li>
+                  <p className="text-sm font-normal text-muted-foreground">
+                    Warning: If you edited your <code>Engine.ini</code> file to
+                    disable logs, you&apos;ll have to re-enable them before
+                    opening your convene history, otherwise the script
+                    won&apos;t work.
+                  </p>
+                </li>
+              </ul>
             </li>
             <li className="mb-10 ms-8">
               <span className="absolute -start-4 bg-accent rounded-full w-8 h-8 p-3 flex justify-center items-center">
@@ -145,17 +155,21 @@ export function ImportTutorial({ redirectToHistory }: Props) {
                   </TooltipContent>
                 </Tooltip>
               </div>
-              <p className="my-4 text-sm font-normal text-muted-foreground">
-                Note: The script does not edit your files, it simply extracts
-                the URL from your logs. You can view the script{" "}
-                <Link
-                  className="text-yellow-500 hover:text-yellow-600"
-                  href="https://gist.github.com/Luzefiru/19c0759bea1b9e7ef480bb39303b3f6c"
-                >
-                  here
-                </Link>
-                .
-              </p>
+              <ul className="flex flex-col gap-2 md:ps-8 md:list-disc mt-2 mb-4">
+                <li>
+                  <p className="text-sm font-normal text-muted-foreground">
+                    Note: The script does not edit your files, it simply
+                    extracts the URL from your logs. You can view the script{" "}
+                    <Link
+                      className="text-yellow-500 hover:text-yellow-600"
+                      href="https://gist.github.com/Luzefiru/19c0759bea1b9e7ef480bb39303b3f6c"
+                    >
+                      here
+                    </Link>
+                    .
+                  </p>
+                </li>
+              </ul>
             </li>
             <li className="mb-10 ms-8">
               <span className="absolute -start-4 bg-accent rounded-full w-8 h-8 p-3 flex justify-center items-center">

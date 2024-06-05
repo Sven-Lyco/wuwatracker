@@ -1,6 +1,6 @@
 import { z } from "zod";
 
-export const LanguageCodes = {
+export const LanguageCode = {
   en: "en",
   de: "de",
   jp: "jp",
@@ -15,22 +15,9 @@ export const LanguageCodes = {
   fr: "fr"
 } as const;
 
-export const LanguageTranslations = {
-  en: "English",
-  de: "Deutsch",
-  jp: "日本語",
-  cn: "简体中文",
-  kr: "한국어",
-  pt: "Português",
-  ru: "Pусский язык",
-  id: "Bahasa Indonesia",
-  vi: "Tiếng Việt",
-  th: "ภาษาไทย",
-  es: "Español",
-  fr: "Français"
-} as const;
-
-export const LanguageTranslationArray = Object.entries(LanguageTranslations).map(([key, value]) => ({ key, value }));
-
-export const LanguageCodeEnumSchema = z.nativeEnum(LanguageCodes);
-export type LanguageCodeEnum = z.infer<typeof LanguageCodeEnumSchema>;
+// TODO: Site will always use "en" temporarily to prevent site crashes, more flexible language support is needed
+export const LanguageCodeEnumSchema = z.preprocess(
+  (_) => LanguageCode.en,
+  z.nativeEnum(LanguageCode).default(LanguageCode.en),
+);
+export type LangaugeCodeEnum = z.infer<typeof LanguageCodeEnumSchema>;

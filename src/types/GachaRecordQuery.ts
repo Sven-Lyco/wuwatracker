@@ -1,5 +1,5 @@
 import { z } from "zod";
-import { LanguageCodes } from "./LangaugeCode";
+import { LanguageCodeEnumSchema } from "./LangaugeCode";
 
 export const ResourceType = {
   Resonators: "Resonators",
@@ -9,7 +9,7 @@ export const ResourceTypeEnumSchema = z.nativeEnum(ResourceType);
 export type ResourceTypeEnum = z.infer<typeof ResourceTypeEnumSchema>;
 
 export const GachaRecordQueryArgsSchema = z.object({
-  languageCode: z.nativeEnum(LanguageCodes),
+  languageCode: LanguageCodeEnumSchema,
   playerId: z.string(),
   recordId: z.string(),
   serverId: z.string(),
